@@ -1,0 +1,2 @@
+platform: hitachi_ac424
+name: "${room} AC"

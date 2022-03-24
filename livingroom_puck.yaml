@@ -1,0 +1,35 @@
+substitutions:
+  room: "Living Room"
+
+esphome:
+  name: livingroom_puck
+
+esp8266:
+  board: esp_wroom_02
+
+# Enable logging
+logger:
+
+<<: !include common/env.yaml
+
+remote_transmitter:
+  pin: GPIO14
+  carrier_duty_percent: 50
+
+remote_receiver:
+  pin: GPIO5
+
+sensor:
+  - platform: homeassistant
+    id: livingroom_temperature
+    entity_id: sensor.living_room_temperature
+
+climate:
+  - <<: !include common/climate/ac.yaml
+    sensor: livingroom_temperature
+
+light:
+  - <<: !include common/light/panasonic.yaml
+
+output:
+  - <<: !include common/output/panasonic_light_out.yaml

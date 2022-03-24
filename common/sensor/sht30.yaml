@@ -1,0 +1,8 @@
+platform: sht3xd
+temperature:
+  id: sht30_temperature
+  name: "${room} Temperature"
+humidity:
+  id: sht30_humidity
+  name: "${room} Humidity"
+address: 0x45

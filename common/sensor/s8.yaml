@@ -1,0 +1,3 @@
+platform: senseair
+co2:
+  name: "${room} CO2"

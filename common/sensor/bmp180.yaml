@@ -1,0 +1,6 @@
+platform: bmp085
+temperature:
+  internal: true
+  name: "${room} BMP Temperature"
+pressure:
+  name: "${room} Pressure"
