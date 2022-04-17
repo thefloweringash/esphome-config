@@ -1,0 +1,50 @@
+substitutions:
+  room: "Bedroom"
+
+esphome:
+  name: matrix
+  includes:
+    - ./tm16xx/tm16xx.hpp
+  libraries:
+    - Wire
+    - SPI # required by Adafruid GFX Library
+    - adafruit/Adafruit BusIO@^1.11.3
+    - adafruit/Adafruit GFX Library@^1.10.14 # required TM16xx
+    - maxint-rd/TM16xx LEDs and Buttons@^0.5.2110
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+<<: !include common/env.yaml
+
+web_server:
+  port: 80
+
+light:
+  - platform: custom
+    lambda: |-
+      auto matrix = new esphome::light::TM16xxLight(
+        new ::TM1640(13, 14), 8 * 8);
+      App.register_component(matrix);
+      return {matrix};
+    lights:
+      - name: "LED Matrix"
+        id: led_matrix
+        default_transition_length: 0ms
+        restore_mode: ALWAYS_ON
+
+display:
+  - platform: addressable_light
+    addressable_light_id: led_matrix
+    width: 8
+    height: 8
+    lambda: |-
+      static int p = 0;
+      it.draw_pixel_at(p % 8, p / 8, COLOR_OFF);
+      p = (p + 1) % 64;
+      it.draw_pixel_at(p % 8, p / 8, Color::WHITE);
+    pixel_mapper: |-
+      return ((7 - y) * 8) + x;
