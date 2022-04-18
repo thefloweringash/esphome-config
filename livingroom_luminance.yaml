@@ -1,0 +1,19 @@
+substitutions:
+  room: "Living Room"
+
+esphome:
+  name: livingroom_luminance
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+<<: !include common/env.yaml
+
+i2c:
+  scan: true
+
+sensor:
+  - <<: !include common/sensor/bh1750.yaml

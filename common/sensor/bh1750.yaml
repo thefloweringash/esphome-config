@@ -1,0 +1,4 @@
+platform: bh1750
+name: "${room} Luminance"
+address: 0x23
+update_interval: 30s

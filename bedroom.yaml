@@ -21,6 +21,7 @@ i2c:
 
 sensor:
   - <<: !include common/sensor/sht30.yaml
+  - <<: !include common/sensor/bh1750.yaml
 
 climate:
   - <<: !include common/climate/ac.yaml
