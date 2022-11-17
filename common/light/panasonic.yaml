@@ -2,3 +2,4 @@ platform: monochromatic
 name: "${room} Ceiling Light"
 default_transition_length: 0s
 output: panasonic_light_out
+gamma_correct: 1.0 # don't correct gamma, we're matching fixed ranges in the output
