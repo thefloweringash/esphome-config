@@ -1,5 +1,10 @@
-platform: monochromatic
-name: "${room} Ceiling Light"
-default_transition_length: 0s
-output: panasonic_light_out
-gamma_correct: 1.0 # don't correct gamma, we're matching fixed ranges in the output
+platform: custom
+lambda: |-
+  auto light = new esphome::light::PanasonicLight(
+    id(remote_transmitter), 2700, 6000);
+  App.register_component(light);
+  return {light};
+lights:
+  name: "${room} Ceiling Light"
+  default_transition_length: 0s
+  gamma_correct: 1.0 # don't correct gamma, we're matching fixed ranges in the output
