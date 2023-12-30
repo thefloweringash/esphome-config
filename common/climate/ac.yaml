@@ -1,2 +1,6 @@
 platform: hitachi_ac424
 name: "${room} AC"
+visual:
+  temperature_step:
+    current_temperature: 0.1
+    target_temperature: 1.0
