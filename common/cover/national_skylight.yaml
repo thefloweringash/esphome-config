@@ -1,0 +1,17 @@
+platform: template
+name: "${room} Skylight"
+optimistic: true
+assumed_state: true
+device_class: window
+open_action:
+  remote_transmitter.transmit_panasonic:
+    address: 0x344A
+    command: 0x90AC448E
+close_action:
+  remote_transmitter.transmit_panasonic:
+    address: 0x344A
+    command: 0x90AC4442
+stop_action:
+  remote_transmitter.transmit_panasonic:
+    address: 0x344A
+    command: 0x90AC0402

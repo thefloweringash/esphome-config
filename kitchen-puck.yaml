@@ -19,7 +19,6 @@ remote_receiver:
   pin:
     number: GPIO5
     inverted: true
-  dump:
-    - nec
-    - panasonic
 
+cover:
+  <<: !include common/cover/national_skylight.yaml
