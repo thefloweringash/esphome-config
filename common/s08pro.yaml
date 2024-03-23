@@ -14,6 +14,14 @@ remote_transmitter:
       output: true
   carrier_duty_percent: 50
 
+remote_receiver:
+  pin:
+    number: P8
+    inverted: true
+    mode:
+      input: true
+      pullup: true
+
 uart:
   rx_pin: RX1
   tx_pin: TX1
