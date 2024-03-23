@@ -1,0 +1,25 @@
+substitutions:
+  room: "Kitchen"
+
+esphome:
+  name: kitchen-puck
+
+esp8266:
+  board: esp_wroom_02
+
+packages:
+  env: !include common/env.yaml
+  fallback: !include common/fallback.yaml
+
+remote_transmitter:
+  pin: GPIO14
+  carrier_duty_percent: 50
+
+remote_receiver:
+  pin:
+    number: GPIO5
+    inverted: true
+  dump:
+    - nec
+    - panasonic
+

@@ -1,0 +1,11 @@
+web_server:
+  auth:
+    username: admin
+    password: !secret device_password
+
+captive_portal:
+
+wifi:
+  ap:
+    ssid: "${room} Hotspot"
+

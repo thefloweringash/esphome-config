@@ -1,0 +1,19 @@
+substitutions:
+  room: "Bedroom"
+
+esphome:
+  name: bedroom-puck
+
+packages:
+  env: !include common/env.yaml
+  dev: !include common/s08pro.yaml
+
+climate:
+  - <<: !include common/climate/ac.yaml
+    sensor: tuya_temperature
+
+light:
+  - <<: !include common/light/panasonic.yaml
+
+output:
+  - <<: !include common/output/panasonic_light_out.yaml
