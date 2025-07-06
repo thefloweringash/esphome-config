@@ -1,0 +1,22 @@
+substitutions:
+  room: "Living Room"
+
+esphome:
+  name: livingroom-presence
+
+esp8266:
+  board: d1_mini
+
+packages:
+  env: !include common/env.yaml
+
+uart:
+  rx_pin: GPIO3
+  tx_pin: GPIO1
+  baud_rate: 256000
+
+
+ld2410:
+
+binary_sensor:
+  - <<: !include common/binary_sensor/ld2410.yaml
