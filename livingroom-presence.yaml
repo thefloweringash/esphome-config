@@ -20,3 +20,10 @@ ld2410:
 
 binary_sensor:
   - <<: !include common/binary_sensor/ld2410.yaml
+
+switch:
+  - platform: ld2410
+    engineering_mode:
+      name: "engineering mode"
+    bluetooth:
+      name: "control bluetooth"
